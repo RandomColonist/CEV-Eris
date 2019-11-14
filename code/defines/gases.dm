@@ -35,6 +35,8 @@
 	overlay_limit = 0.7
 	flags = XGM_GAS_FUEL | XGM_GAS_CONTAMINANT
 
+//i luv sojourn <3
+
 /decl/xgm_gas/sleeping_agent
 	id = "sleeping_agent"
 	name = "Sleeping Agent"
