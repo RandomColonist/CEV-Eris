@@ -7,22 +7,29 @@
 /obj/random/tool/item_to_spawn()
 	return pickweight(list(/obj/random/pack/rare = 2,
 				/obj/item/weapon/tool/screwdriver = 8,
+				/obj/item/weapon/tool/screwdriver/improvised = 12,
 				/obj/item/weapon/tool/screwdriver/electric = 2,
 				/obj/item/weapon/tool/screwdriver/combi_driver = 1,
 				/obj/item/weapon/tool/wirecutters = 8,
+				/obj/item/weapon/tool/wirecutters/improvised = 12,
 				/obj/item/weapon/tool/wirecutters/armature = 2,
 				/obj/item/weapon/tool/weldingtool = 8,
+				/obj/item/weapon/tool/weldingtool/improvised = 12,
 				/obj/item/weapon/tool/weldingtool/advanced = 2,
 				/obj/item/weapon/tool/omnitool = 0.5,
 				/obj/item/weapon/tool/crowbar = 12,
+				/obj/item/weapon/tool/crowbar/improvised = 18,
 				/obj/item/weapon/tool/crowbar/pneumatic = 2,
 				/obj/item/weapon/tool/wrench = 8,
+				/obj/item/weapon/tool/wrench/improvised = 12,
 				/obj/item/weapon/tool/wrench/big_wrench = 2,
 				/obj/item/weapon/tool/saw = 8,
+				/obj/item/weapon/tool/saw/improvised = 12,
 				/obj/item/weapon/tool/saw/circular = 2,
 				/obj/item/weapon/tool/saw/circular/advanced = 1,
 				/obj/item/weapon/tool/saw/chain = 0.5,
 				/obj/item/weapon/tool/shovel = 5,
+				/obj/item/weapon/tool/shovel/improvised = 9,
 				/obj/item/weapon/tool/shovel/spade = 2.5,
 				/obj/item/weapon/tool/pickaxe = 2,
 				/obj/item/weapon/tool/pickaxe/jackhammer = 1,
@@ -30,6 +37,7 @@
 				/obj/item/weapon/tool/pickaxe/diamonddrill = 0.5,
 				/obj/item/weapon/tool/pickaxe/excavation = 1,
 				/obj/item/weapon/tool/tape_roll = 12,
+				/obj/item/weapon/tool/tape_roll/web = 18,
 				/obj/item/weapon/tool/tape_roll/fiber = 2,
 				/obj/item/weapon/storage/belt/utility = 5,
 				/obj/item/weapon/storage/belt/utility/full = 1,
@@ -77,8 +85,20 @@
 	icon_state = "tool-grey-low"
 	spawn_nothing_percentage = 60
 
+/obj/random/tool/makeshift
+	name = "random makeshift tool"
+	icon_state = "tool-black"
 
-
+/obj/random/tool/makeshift/item_to_spawn()
+	return pickweight(list(
+				/obj/item/weapon/tool/crowbar/improvised = 1,
+				/obj/item/weapon/tool/saw/improvised = 1,
+				/obj/item/weapon/tool/screwdriver/improvised = 1,
+				/obj/item/weapon/tool/shovel/improvised = 1,
+				/obj/item/weapon/tool/tape_roll/web = 0.5,
+				/obj/item/weapon/tool/weldingtool/improvised = 1,
+				/obj/item/weapon/tool/wirecutters/improvised = 1,
+				/obj/item/weapon/tool/wrench/improvised = 1))
 
 /obj/random/tool/advanced
 	name = "random advanced tool"
