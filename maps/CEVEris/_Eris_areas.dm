@@ -114,6 +114,10 @@
 	name = "Third Section Deck 2 Starboard Maintenance"
 	icon_state = "section3deck2starboard"
 
+/area/eris/maintenance/section3deck2starboard/den
+	name = "Vagabond Den"
+	icon_state = "vagaden"
+
 /area/eris/maintenance/section3deck3port
 	name = "Third Section Deck 3 Port Maintenance"
 	icon_state = "section3deck3port"
