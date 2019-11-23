@@ -19,15 +19,6 @@
 						/obj/structure/scrap/science/large
 					))
 
-/obj/random/scrap/dense_weighted/low_chance
-	name = "low chance random trash"
-	icon_state = "junk-red-low"
-	spawn_nothing_percentage = 70
-
-
-
-
-
 /obj/random/scrap/dense_weighted
 	name = "Random dense weighted trash"
 
@@ -49,10 +40,6 @@
 	icon_state = "junk-red-low"
 	spawn_nothing_percentage = 70
 
-
-
-
-
 /obj/random/scrap/sparse_even
 	name = "Random sparse even trash"
 
@@ -71,10 +58,6 @@
 	name = "low chance random trash"
 	icon_state = "junk-red-low"
 	spawn_nothing_percentage = 70
-
-
-
-
 
 /obj/random/scrap/sparse_weighted
 	name = "Random sparse weighted trash"
@@ -95,9 +78,6 @@
 	name = "low chance random trash"
 	icon_state = "junk-red-low"
 	spawn_nothing_percentage = 70
-
-
-
 
 /obj/random/scrap/moderate_weighted
 	name = "Random moderate weighted trash"
