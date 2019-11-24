@@ -20,6 +20,8 @@
 	fire_sound = 'sound/weapons/guns/fire/shotgunp_fire.ogg'
 	matter = list(MATERIAL_PLASTEEL = 20, MATERIAL_WOOD = 10)
 	price_tag = 1500
+	recoil_buildup = 10 //you can always shoot two barrels at once for perfect hit
+
 	var/bolt_open = 0
 
 	burst_delay = 0

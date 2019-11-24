@@ -215,12 +215,12 @@
 		/obj/item/weapon/gun/projectile/silenced,
 		/obj/item/weapon/gun/energy/gun,
 		/obj/item/weapon/gun/energy/chameleon,
-		//obj/item/weapon/gun/energy/captain, //too unwieldy, use belt/suit slot or other storage
+		//obj/item/weapon/gun/energy/captain, //more of a carbine than sidearm, to be uncommented if it would change in future
 		/obj/item/weapon/gun/energy/stunrevolver,
 		/obj/item/weapon/gun/projectile/revolver,
 		/obj/item/weapon/gun/projectile/automatic/IH_machinepistol,
 		/obj/item/weapon/gun/projectile/IH_sidearm,
-		/obj/item/weapon/gun/projectile/shotgun/doublebarrel/sawn, //short enough to fit in
+		/obj/item/weapon/gun/projectile/shotgun/doublebarrel/sawn/nobutt,
 		/obj/item/weapon/gun/launcher/syringe
 		)
 
@@ -242,7 +242,15 @@
 	max_w_class = ITEM_SIZE_BULKY
 
 	can_hold = list(
-		/obj/item/weapon/melee,
+		/obj/item/device/lighting/glowstick,			//beginning from here - shared list with tubular pouch since baton sheath
+		/obj/item/weapon/reagent_containers/syringe,	//is essentially bigger tubular pouch section, but a single one.
+		/obj/item/weapon/reagent_containers/glass/beaker/vial,
+		/obj/item/weapon/reagent_containers/hypospray,
+		/obj/item/weapon/pen,
+		/obj/item/weapon/storage/pill_bottle,
+		/obj/item/weapon/hatton_magazine,
+		/obj/item/ammo_casing/rocket,
+		/obj/item/weapon/melee,	//beginning from this one - items that fit exclusively into baton sheath
 		/obj/item/weapon/tool/crowbar
 		)
 
