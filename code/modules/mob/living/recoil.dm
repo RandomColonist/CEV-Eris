@@ -19,7 +19,7 @@
 		var/obj/item/weapon/gun/G
 		var/timed_reduction = min(time**2, 400)
 		var/recoil_reduction = (timed_reduction * calc_reduction()) - G.recoil_dissipation 
-		recoil -= 
+		recoil -= recoil_reduction
 		if(recoil <= 0)
 			recoil = 0
 			last_recoil_update = 0
