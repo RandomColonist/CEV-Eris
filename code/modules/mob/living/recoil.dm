@@ -16,8 +16,10 @@
 	var/time = world.time - last_recoil_update
 	if(time)
 		//About the following code. This code is a mess, and we SHOULD NOT USE WORLD TIME FOR RECOIL
+		var/obj/item/weapon/gun/G
 		var/timed_reduction = min(time**2, 400)
-		recoil -= timed_reduction * calc_reduction()
+		var/recoil_reduction = (timed_reduction * calc_reduction()) - G.recoil_dissipation 
+		recoil -= 
 		if(recoil <= 0)
 			recoil = 0
 			last_recoil_update = 0
