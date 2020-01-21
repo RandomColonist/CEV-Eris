@@ -34,7 +34,8 @@
 
 	var/fire_sound_text = "gunshot"
 	var/recoil_buildup = 2 //How quickly recoil builds up
-
+	var/recoil_dissipation = 2 //How quickly recoil dissipates
+	
 	var/muzzle_flash = 3
 	var/dual_wielding
 	var/can_dual = 0 // Controls whether guns can be dual-wielded (firing two at once).
