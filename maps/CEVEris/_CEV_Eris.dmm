@@ -28,6 +28,14 @@
 "aah" = (
 /obj/machinery/door/firedoor,
 /obj/effect/window_lwall_spawn/smartspawn,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	icon_state = "pdoor0";
+	id = "BrigFiringRangeLockdown";
+	layer = 2.6;
+	name = "Brig Firing Range Lockdown";
+	opacity = 0
+	},
 /turf/simulated/floor/plating,
 /area/eris/security/range)
 "aai" = (
@@ -46,10 +54,7 @@
 	dir = 8
 	},
 /obj/item/weapon/gun/energy/laser/practice,
-/obj/item/weapon/paper{
-	info = "Directions:<br><i>First you'll want to make sure there is a target stake in the center of the magnetic platform. Next, take an aluminum target from the crates back there and slip it into the stake. Make sure it clicks! Next, there should be a control console mounted on the wall somewhere in the room.<br><br> This control console dictates the behaviors of the magnetic platform, which can move your firing target around to simulate real-world combat situations. From here, you can turn off the magnets or adjust their electromagnetic levels and magnetic fields. The electricity level dictates the strength of the pull - you will usually want this to be the same value as the speed. The magnetic field level dictates how far the magnetic pull reaches.<br><br>Speed and path are the next two settings. Speed is associated with how fast the machine loops through the designated path. Paths dictate where the magnetic field will be centered at what times. There should be a pre-fabricated path input already. You can enable moving to observe how the path affects the way the stake moves. To script your own path, look at the following key:</i><br><br>N: North<br>S: South<br>E: East<br>W: West<br>C: Center<br>R: Random (results may vary)<br>; or &: separators. They are not necessary but can make the path string better visible.";
-	name = "Firing Range Instructions"
-	},
+/obj/item/weapon/gun/energy/laser/practice,
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/security/range)
 "aal" = (
@@ -102,10 +107,23 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
+/obj/item/weapon/paper{
+	info = "Directions:<br><i>First you'll want to make sure there is a target stake in the center of the magnetic platform. Next, take an aluminum target from the crates back there and slip it into the stake. Make sure it clicks! Next, there should be a control console mounted on the wall somewhere in the room.<br><br> This control console dictates the behaviors of the magnetic platform, which can move your firing target around to simulate real-world combat situations. From here, you can turn off the magnets or adjust their electromagnetic levels and magnetic fields. The electricity level dictates the strength of the pull - you will usually want this to be the same value as the speed. The magnetic field level dictates how far the magnetic pull reaches.<br><br>Speed and path are the next two settings. Speed is associated with how fast the machine loops through the designated path. Paths dictate where the magnetic field will be centered at what times. There should be a pre-fabricated path input already. You can enable moving to observe how the path affects the way the stake moves. To script your own path, look at the following key:</i><br><br>N: North<br>S: South<br>E: East<br>W: West<br>C: Center<br>R: Random (results may vary)<br>; or &: separators. They are not necessary but can make the path string better visible.";
+	name = "Firing Range Instructions"
+	},
 /turf/simulated/floor/tiled/dark/gray_platform,
 /area/eris/security/range)
 "aaq" = (
 /obj/effect/window_lwall_spawn/smartspawn,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	icon_state = "pdoor0";
+	id = "BrigFiringRangeLockdown";
+	layer = 2.6;
+	name = "Brig Firing Range Lockdown";
+	opacity = 0
+	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/eris/security/range)
 "aar" = (
@@ -318,6 +336,12 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
+	},
+/obj/machinery/button/remote{
+	id = "BrigFiringRangeLockdown";
+	name = "Brig Firing Range Lockdown";
+	pixel_x = 26;
+	pixel_y = 0
 	},
 /turf/simulated/floor/tiled/dark,
 /area/eris/security/range)
@@ -681,6 +705,7 @@
 /obj/item/weapon/storage/belt/security,
 /obj/item/weapon/storage/belt/security,
 /obj/item/weapon/storage/belt/security,
+/obj/item/weapon/storage/belt/security,
 /turf/simulated/floor/tiled/dark/cargo,
 /area/eris/security/armory)
 "abR" = (
@@ -708,6 +733,7 @@
 /area/eris/security/armory)
 "abT" = (
 /obj/structure/table/rack,
+/obj/item/clothing/gloves/stungloves,
 /obj/item/clothing/gloves/stungloves,
 /obj/item/clothing/gloves/stungloves,
 /obj/item/clothing/gloves/stungloves,
@@ -852,7 +878,14 @@
 /obj/item/clothing/suit/armor/bulletproof/ironhammer,
 /obj/item/clothing/suit/armor/bulletproof/ironhammer,
 /obj/item/clothing/suit/armor/bulletproof/ironhammer,
-/obj/item/clothing/suit/armor/bulletproof/ironhammer,
+/obj/item/clothing/head/armor/bulletproof/ironhammer,
+/obj/item/clothing/head/armor/bulletproof/ironhammer,
+/obj/item/clothing/head/armor/bulletproof/ironhammer,
+/obj/item/clothing/head/armor/bulletproof/ironhammer,
+/obj/item/clothing/head/armor/bulletproof/ironhammer,
+/obj/item/clothing/head/armor/bulletproof/ironhammer,
+/obj/item/clothing/head/armor/bulletproof/ironhammer,
+/obj/item/clothing/head/armor/bulletproof/ironhammer,
 /turf/simulated/floor/tiled/dark/cargo,
 /area/eris/security/armory)
 "acm" = (
@@ -1079,7 +1112,7 @@
 	name = "Armoury Airlock Cover Control";
 	pixel_x = 24;
 	pixel_y = 24;
-	req_access = null
+	req_access = list(1)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -1287,11 +1320,11 @@
 /obj/structure/table/rack,
 /obj/item/weapon/storage/box/teargas,
 /obj/item/weapon/storage/box/teargas,
-/obj/item/weapon/storage/box/teargas,
 /turf/simulated/floor/tiled/dark/cargo,
 /area/eris/security/armory)
 "adf" = (
 /obj/structure/table/rack,
+/obj/item/weapon/storage/toolbox/mechanical,
 /obj/item/weapon/storage/toolbox/mechanical,
 /turf/simulated/floor/tiled/dark/cargo,
 /area/eris/security/armory)
@@ -1319,6 +1352,8 @@
 /area/eris/security/armory)
 "adi" = (
 /obj/structure/table/rack,
+/obj/item/weapon/cell/medium/high,
+/obj/item/weapon/cell/medium/high,
 /obj/item/weapon/cell/medium/high,
 /obj/item/weapon/cell/medium/high,
 /obj/item/weapon/cell/medium/high,
@@ -1362,7 +1397,6 @@
 /area/eris/security/armory)
 "adm" = (
 /obj/structure/table/rack,
-/obj/item/weapon/storage/box/flashbangs,
 /obj/item/weapon/storage/box/flashbangs,
 /obj/item/weapon/storage/box/flashbangs,
 /turf/simulated/floor/tiled/dark/cargo,
@@ -1577,6 +1611,12 @@
 /area/eris/security/armory)
 "adQ" = (
 /obj/structure/table/rack,
+/obj/item/weapon/tank/emergency_oxygen/double,
+/obj/item/weapon/tank/emergency_oxygen/double,
+/obj/item/weapon/tank/emergency_oxygen/double,
+/obj/item/weapon/tank/emergency_oxygen/double,
+/obj/item/weapon/tank/emergency_oxygen/double,
+/obj/item/weapon/tank/emergency_oxygen/double,
 /obj/item/weapon/tank/emergency_oxygen/double,
 /obj/item/weapon/tank/emergency_oxygen/double,
 /turf/simulated/floor/tiled/dark/cargo,
@@ -3303,6 +3343,8 @@
 	dir = 4;
 	pixel_x = -22
 	},
+/obj/item/clothing/mask/muzzle,
+/obj/item/weapon/tool/tape_roll,
 /turf/simulated/floor/tiled/dark,
 /area/eris/security/exerooms)
 "ahL" = (
@@ -3746,6 +3788,7 @@
 /area/eris/security/exerooms)
 "aiN" = (
 /obj/machinery/light/small,
+/obj/structure/closet/secure_closet/injection,
 /turf/simulated/floor/tiled/dark,
 /area/eris/security/exerooms)
 "aiO" = (
@@ -4749,10 +4792,6 @@
 	pixel_y = 2
 	},
 /obj/structure/table/rack/shelf,
-/turf/simulated/floor/tiled/white/bluecorner,
-/area/eris/security/exerooms)
-"akK" = (
-/obj/structure/closet/secure_closet/injection,
 /turf/simulated/floor/tiled/white/bluecorner,
 /area/eris/security/exerooms)
 "akL" = (
@@ -18620,6 +18659,20 @@
 /obj/item/weapon/handcuffs,
 /obj/item/weapon/handcuffs,
 /obj/item/device/flash,
+/obj/machinery/button/remote/blast_door{
+	id = "SecurityOfficeLockdown";
+	name = "Security Office External Lockdown";
+	pixel_x = 26;
+	pixel_y = -9;
+	req_access = list(1)
+	},
+/obj/machinery/button/remote/blast_door{
+	id = "WestLookoutLockdown";
+	name = "West Lookout External Lockdown";
+	pixel_x = 26;
+	pixel_y = 7;
+	req_access = list(1)
+	},
 /turf/simulated/floor/tiled/steel/gray_platform,
 /area/eris/security/main)
 "aRx" = (
@@ -18654,7 +18707,8 @@
 	id = "BrigFoyer";
 	name = "Brig Foyer Doors";
 	pixel_x = -9;
-	pixel_y = 25
+	pixel_y = 25;
+	req_access = list(1)
 	},
 /obj/machinery/button/remote/blast_door{
 	id = "Armoury";
@@ -90554,6 +90608,12 @@
 /obj/structure/table/rack,
 /obj/item/clothing/mask/gas/ihs,
 /obj/item/clothing/mask/gas/ihs,
+/obj/item/clothing/mask/gas/ihs,
+/obj/item/clothing/mask/gas/ihs,
+/obj/item/clothing/mask/gas/ihs,
+/obj/item/clothing/mask/gas/ihs,
+/obj/item/clothing/mask/gas/ihs,
+/obj/item/clothing/mask/gas/ihs,
 /turf/simulated/floor/tiled/dark/cargo,
 /area/eris/security/armory)
 "dUx" = (
@@ -108168,6 +108228,19 @@
 	},
 /turf/simulated/floor/carpet/purcarpet,
 /area/eris/rnd/research)
+"eNv" = (
+/obj/effect/window_lwall_spawn/smartspawn,
+/obj/machinery/door/firedoor,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	icon_state = "pdoor0";
+	id = "WestLookoutLockdown";
+	layer = 2.6;
+	name = "West Lookout External Lockdown";
+	opacity = 0
+	},
+/turf/simulated/floor/plating,
+/area/eris/security/main)
 "eNI" = (
 /obj/random/junk/low_chance,
 /turf/simulated/floor/hull,
@@ -108261,6 +108334,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/eris/engineering/construction)
+"gBI" = (
+/obj/random/traps/low_chance,
+/turf/simulated/floor/tiled/techmaint,
+/area/eris/security/maintpost)
 "gQw" = (
 /obj/machinery/disposal,
 /obj/structure/disposalpipe/trunk{
@@ -108279,6 +108356,11 @@
 /obj/machinery/space_heater,
 /turf/simulated/floor/tiled/steel/techfloor_grid,
 /area/eris/engineering/engine_room)
+"hNp" = (
+/obj/random/junk/low_chance,
+/obj/random/traps/low_chance,
+/turf/simulated/floor/tiled/techmaint,
+/area/eris/maintenance/section1deck5central)
 "ijn" = (
 /obj/structure/table/bar_special,
 /obj/item/weapon/reagent_containers/food/condiment/peppermill{
@@ -108590,6 +108672,16 @@
 	},
 /turf/space,
 /area/space)
+"nwm" = (
+/obj/machinery/button/remote/blast_door{
+	id = "WestLookoutLockdown";
+	name = "West Lookout External Lockdown";
+	pixel_x = 0;
+	pixel_y = -26;
+	req_access = list(1)
+	},
+/turf/simulated/floor/tiled/dark/techfloor_grid,
+/area/eris/security/main)
 "nGz" = (
 /obj/structure/sink{
 	dir = 4;
@@ -108736,6 +108828,19 @@
 	},
 /turf/simulated/floor/tiled/steel/techfloor,
 /area/eris/engineering/engine_room)
+"qjP" = (
+/obj/machinery/door/firedoor,
+/obj/effect/window_lwall_spawn/smartspawn,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	icon_state = "pdoor0";
+	id = "WestLookoutLockdown";
+	layer = 2.6;
+	name = "West Lookout External Lockdown";
+	opacity = 0
+	},
+/turf/simulated/floor/plating,
+/area/eris/security/main)
 "qkR" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/atmos{
@@ -108826,6 +108931,19 @@
 /obj/machinery/meter,
 /turf/simulated/floor/tiled/steel/techfloor_grid,
 /area/eris/engineering/engine_room)
+"sBU" = (
+/obj/machinery/door/firedoor,
+/obj/effect/window_lwall_spawn/smartspawn,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	icon_state = "pdoor0";
+	id = "EastLookoutLockdown";
+	layer = 2.6;
+	name = "East Lookout External Lockdown";
+	opacity = 0
+	},
+/turf/simulated/floor/plating,
+/area/eris/security/barracks)
 "sJL" = (
 /mob/living/carbon/human/monkey,
 /turf/simulated/floor/reinforced,
@@ -109002,6 +109120,16 @@
 	},
 /turf/simulated/floor/tiled/steel/gray_platform,
 /area/eris/engineering/engine_room)
+"vhN" = (
+/obj/machinery/button/remote/blast_door{
+	id = "EastLookoutLockdown";
+	name = "East Lookout External Lockdown";
+	pixel_x = 0;
+	pixel_y = -26;
+	req_access = list(1)
+	},
+/turf/simulated/floor/tiled/dark/techfloor_grid,
+/area/eris/security/barracks)
 "voV" = (
 /obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging/junction,
@@ -109152,6 +109280,19 @@
 	},
 /turf/simulated/open,
 /area/eris/medical/chemstor)
+"yic" = (
+/obj/machinery/door/firedoor,
+/obj/effect/window_lwall_spawn/smartspawn,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	icon_state = "pdoor0";
+	id = "SecurityOfficeLockdown";
+	layer = 2.6;
+	name = "Security Office External Lockdown";
+	opacity = 0
+	},
+/turf/simulated/floor/plating,
+/area/eris/security/main)
 
 (1,1,1) = {"
 aaa
@@ -128379,9 +128520,9 @@ aaa
 aaa
 aaa
 aab
-aac
-aac
-aac
+qjP
+qjP
+qjP
 aab
 aaa
 aaG
@@ -128580,11 +128721,11 @@ aaa
 aaa
 aaa
 aaa
-aac
+qjP
 aaj
 aaj
 aaj
-aab
+eNv
 aaa
 aaG
 aat
@@ -128782,7 +128923,7 @@ aaa
 aaa
 aaa
 aaa
-aac
+qjP
 aaj
 aav
 aaz
@@ -128815,7 +128956,7 @@ aht
 akk
 akO
 aeH
-akK
+akW
 aln
 amq
 aht
@@ -128984,10 +129125,10 @@ aaa
 aaa
 aaa
 aaa
-aac
+qjP
 aaj
 aaj
-aaj
+nwm
 aab
 aaq
 aaG
@@ -129017,7 +129158,7 @@ aht
 akl
 akR
 aeH
-akW
+aln
 alH
 amr
 aht
@@ -129187,9 +129328,9 @@ aaa
 aaa
 aaa
 aab
-aac
-aac
-aac
+qjP
+qjP
+qjP
 aab
 aak
 aap
@@ -131639,7 +131780,7 @@ dAp
 dAp
 dAp
 dAp
-dzn
+aex
 dAp
 dAp
 dAp
@@ -132015,9 +132156,9 @@ aaa
 aaa
 aaa
 aaf
-aag
-aag
-aag
+sBU
+sBU
+sBU
 aaf
 aaR
 abh
@@ -132216,10 +132357,10 @@ aaa
 aaa
 aaa
 aaa
-aag
+sBU
 aas
 aas
-aas
+vhN
 aaf
 aaR
 aaR
@@ -132255,7 +132396,7 @@ ahu
 alY
 alP
 alP
-dzn
+aex
 dzq
 aaa
 dMo
@@ -132418,7 +132559,7 @@ aaa
 aaa
 aaa
 aaa
-aag
+sBU
 aas
 aay
 aaD
@@ -132452,7 +132593,7 @@ agO
 dzn
 dzn
 agO
-ahG
+gBI
 ahG
 ahG
 agO
@@ -132620,7 +132761,7 @@ aaa
 aaa
 aaa
 aaa
-aag
+sBU
 aas
 aas
 aas
@@ -132651,7 +132792,7 @@ dzi
 dzi
 dzi
 dzi
-dzp
+hNp
 dAp
 alP
 abv
@@ -132823,9 +132964,9 @@ aaa
 aaa
 aaa
 aaf
-aag
-aag
-aag
+sBU
+sBU
+sBU
 aaf
 aaa
 aaa
@@ -167775,11 +167916,11 @@ aaA
 aaa
 aab
 aab
-aac
-aac
-aac
-aac
-aac
+yic
+yic
+yic
+yic
+yic
 aab
 aab
 aVt
@@ -168177,7 +168318,7 @@ aaa
 aaa
 aaA
 aaa
-aac
+yic
 aBi
 aRe
 bUy
@@ -168379,7 +168520,7 @@ aaA
 aad
 aaA
 aad
-aac
+yic
 aBi
 aRe
 aRe
@@ -168581,7 +168722,7 @@ aaa
 aaa
 aad
 aaa
-aac
+yic
 aBi
 aRg
 aRY
@@ -168780,9 +168921,9 @@ aaa
 aaA
 aad
 aab
-aac
-aac
-aac
+qjP
+qjP
+qjP
 aab
 aBj
 aXE
@@ -168981,7 +169122,7 @@ aaa
 aaa
 aaA
 aaa
-aac
+qjP
 aQJ
 aQJ
 aRa
@@ -169183,7 +169324,7 @@ aaa
 aaa
 aaA
 aaa
-aac
+qjP
 aQB
 aQK
 aQO
@@ -169385,7 +169526,7 @@ aaa
 aaa
 aaA
 aaa
-aac
+qjP
 aQJ
 aQN
 aQT
@@ -169588,9 +169729,9 @@ aaa
 aaA
 aad
 aab
-aac
-aac
-aac
+qjP
+qjP
+qjP
 aab
 aBm
 aBi
