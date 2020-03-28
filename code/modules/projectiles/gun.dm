@@ -65,6 +65,8 @@
 
 	var/projectile_color //Set by a firemode. Sets the fired projectiles color
 
+	var/twohanded = FALSE //If TRUE, gun can only be fired when wileded
+	var/recentwield = 0 // to prevent spammage
 
 /obj/item/weapon/gun/get_item_cost(export)
 	if(export)
@@ -117,6 +119,9 @@
 	if(one_hand_penalty && (!wielded_item_state))//If the gun has a one handed penalty but no wielded item state then use this generic one.
 		wielded_item_state = "_doble" //Someone mispelled double but they did it so consistently it's staying this way.
 
+	var/obj/screen/item_action/action = new /obj/screen/item_action/top_bar/weapon_info
+	action.owner = src
+	hud_actions += action
 
 /obj/item/weapon/gun/Destroy()
 	for(var/i in firemodes)
@@ -177,6 +182,18 @@
 	if(HULK in M.mutations)
 		to_chat(user, SPAN_DANGER("Your fingers are much too large for the trigger guard!"))
 		return FALSE
+	if(!restrict_safety)
+		if(safety)
+			to_chat(user, SPAN_DANGER("The gun's safety is on!"))
+			handle_click_empty(user)
+			return FALSE
+	if(twohanded)
+		if(!wielded)
+			if (world.time >= recentwield + 1 SECONDS)
+				to_chat(user, SPAN_DANGER("The gun is too heavy to shoot in one hand!"))
+				recentwield = world.time
+			return FALSE
+
 	if((CLUMSY in M.mutations) && prob(40)) //Clumsy handling
 		var/obj/P = consume_next_projectile()
 		if(P)
@@ -190,11 +207,6 @@
 		else
 			handle_click_empty(user)
 		return FALSE
-	if(!restrict_safety)
-		if(safety)
-			to_chat(user, SPAN_DANGER("The gun's safety is on!"))
-			handle_click_empty(user)
-			return FALSE
 	return TRUE
 
 /obj/item/weapon/gun/emp_act(severity)
@@ -492,6 +504,11 @@
 	sel_mode++
 	if(sel_mode > firemodes.len)
 		sel_mode = 1
+	return set_firemode(sel_mode)
+
+/obj/item/weapon/gun/proc/set_firemode(var/index)
+	if(index > firemodes.len)
+		index = 1
 	var/datum/firemode/new_mode = firemodes[sel_mode]
 	new_mode.apply_to(src)
 	new_mode.update()
@@ -504,15 +521,6 @@
 		return
 
 	toggle_firemode(user)
-
-/obj/item/weapon/gun/ui_action_click(mob/living/user, action_name)
-	switch(action_name)
-		if("fire mode")
-			toggle_firemode(user)
-		if("scope")
-			toggle_scope(user)
-		if("safety")
-			toggle_safety(user)
 
 /obj/item/weapon/gun/proc/toggle_firemode(mob/living/user)
 	var/datum/firemode/new_mode = switch_firemodes()
@@ -627,3 +635,45 @@
 	damage_multiplier += silenced.damage_mod
 	silenced = null
 	update_icon()
+
+
+/obj/item/weapon/gun/ui_data(mob/user)
+	var/list/data = list()
+	data["damage_multiplier"] = damage_multiplier
+	data["penetration_multiplier"] = penetration_multiplier
+
+	data["fire_delay"] = fire_delay //time between shot, in ms
+	data["burst"] = burst //How many shots are fired per click
+	data["burst_delay"] = burst_delay //time between shot in burst mode, in ms
+
+	data["force"] = force
+	data["force_max"] = initial(force)*10
+	data["muzzle_flash"] = muzzle_flash
+
+	data["recoil_buildup"] = recoil_buildup
+	data["recoil_buildup_max"] = initial(recoil_buildup)*10
+
+	if(firemodes.len)
+		var/list/firemodes_info = list()
+		for(var/i = 1 to firemodes.len)
+			data["firemode_count"] += 1
+			var/datum/firemode/F = firemodes[i]
+			firemodes_info += list(list(
+				"index" = i,
+				"current" = (i == sel_mode),
+				"name" = F.name,
+				"burst" = F.settings["burst"],
+				"fire_delay" = F.settings["fire_delay"],
+				"move_delay" = F.settings["move_delay"],
+				))
+		data["firemode_info"] = firemodes_info
+	return data
+
+/obj/item/weapon/gun/Topic(href, href_list, var/datum/topic_state/state)
+	if(..(href, href_list, state))
+		return 1
+
+	if(href_list["firemode"])
+		sel_mode = text2num(href_list["firemode"])
+		set_firemode(sel_mode)
+		return 1
